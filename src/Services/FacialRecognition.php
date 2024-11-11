@@ -57,18 +57,7 @@ class FacialRecognition{
         $images = $training[[0, 24]];
         $labels = $training_labels[[0, 24]];
 
-        //Plot is messed up, have to randomize images or rearrange the array
-//        [$fig, $axes] = $plt->subplots(5, 5);
-//        foreach ($images as $i => $image) {
-//            $axes[$i]->imshow($image,
-//                null, null, null, $origin = 'upper');
-//            $label = $labels[$i];
-//            $axes[$i]->setTitle($classnames[$label] . "($label)");
-//            $axes[$i]->setFrame(false);
-//        }
-        //ob_clean();
-        //header("Content-type: image/png");
-        //$plt->show();
+    
 
         $f_train_img = $mo->scale(1.0 / 255.0, $mo->la()->astype($training, NDArray::float32));
         $f_val_img = $mo->scale(1.0 / 255.0, $mo->la()->astype($testing, NDArray::float32));
@@ -136,17 +125,6 @@ class FacialRecognition{
 
         }
 
-//
-//        $plt->setConfig([]);
-//        $plt->plot($mo->array($history['accuracy']), null, null, 'accuracy');
-//        $plt->plot($mo->array($history['val_accuracy']), null, null, 'val_accuracy');
-//        $plt->plot($mo->array($history['loss']), null, null, 'loss');
-//        $plt->plot($mo->array($history['val_loss']), null, null, 'val_loss');
-//        $plt->legend();
-//        $plt->title('face_recognition');
-        //ob_clean();
-        //header("Content-type: image/png");
-        //$plt->show();
 
         $acc = end($history['accuracy']);
 
